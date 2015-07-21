@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>bil - demo</title>
+    <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/foundation.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <script src="../js/namespace.js"></script>
+    <script src="../js/constants.js"></script>
+    <script src="../js/directives/DirectivesFactory.js"></script>
+    <script src="../js/modules/RequestModule.js"></script>
+    <script src="../js/config/ConfigurationHandler.js"></script>
+    <script src="../js/config/ArticleConfiguration.js"></script>
+    <script src="../js/bil_dev.js"></script>
+    <script src="../js/vendor/pure.js"></script>
+</head>
+<body>
+
+<div class="row">
+    <div class="large-12 columns ">
+        <div class="logo">
+           BIL
+            <small>...unobtrusive content management </small>
+        </div>
+
+        <h2>News</h2>
+        <div class="news-container bil-repeatable bil-news">
+            <div class="singleNewsContainer bil-repeatable-item">
+                <div class="header">
+                    <span class="bil-header"></span>
+                    date: <span class="bil-postDate"></span>
+                </div>
+                <div class="content">
+                    <div class="bil-content"></div>
+                </div>
+                <div class="bil-footer"></div>
+            </div>
+        </div>
+
+        <h2>Articles</h2>
+        <div class="article-container bil-single bil-contact">
+            date: <div class="bil-date"></div>
+            header: <div class="bil-header"></div>
+            content: <div class="bil-content"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #484848;
+}
+
+.logo{
+    font-size: 89px;
+    color: #da2432;
+}
+
+.logo small {
+    font-size: 12px;
+}
+.news-container {
+    border: 1px solid #cecece;
+}
+
+.news-container .header {
+    font-size: 18px;
+    background: #474747;
+    color: #fff;
+    padding:10px;
+}
+
+.news-container .header-date {
+    font-size: 11px;
+    float: right;
+}
+
+.news-container .content {
+    padding:10px;
+}
+
+nav {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.article-container{
+    border: 1px solid #cecece;
+    background-color: #f9f9f9;
+    font-size: 12px;
+
+}

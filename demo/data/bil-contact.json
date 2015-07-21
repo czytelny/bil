@@ -1,0 +1,15 @@
+{
+    "bil-contact": {
+        "options": {
+            "sorting": false,
+            "sortAscending": false,
+            "requiredFields": ["header", "date", "content"]
+        },
+        "data": {
+            "header": "article 1",
+            "content": "Hello, my name is Tondasdasdknasdkoias ioas dioas dioas jdioas jdoias i Jabarosi.Hello, my name is Tondasdasdknasdkoias ioas dioas dioas jdioas jdoias i Jabarosi. Today, we are goin to lear some bass line.<br/>",
+            "date": "123-123-12"
+        }
+
+    }
+}

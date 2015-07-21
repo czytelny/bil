@@ -1,0 +1,3 @@
+var BIL = {
+	CONSTANTS: {}
+};
