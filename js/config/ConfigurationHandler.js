@@ -13,7 +13,7 @@ BIL.ConfigurationHandler = (function() {
     //TODO: configData zagnieździć jako obiekt dla conf handlera.
 
     var getSinglesList = function(configData) {
-        var singlesList = configData.applicationSettings.staticArticles;
+        var singlesList = configData.applicationSettings.singleArticles;
         if (singlesList instanceof Array) {
             appendPrefixToArrayElements(singlesList);
             return singlesList;
@@ -24,7 +24,7 @@ BIL.ConfigurationHandler = (function() {
     };
 
     var getRepeatableList = function(configData) {
-        var repeatableList = configData.applicationSettings.dynamicArticles;
+        var repeatableList = configData.applicationSettings.multipleArticles;
         if (repeatableList instanceof Array) {
             appendPrefixToArrayElements(repeatableList);
             return repeatableList;

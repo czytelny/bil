@@ -30,7 +30,6 @@ module.exports = function(grunt) {
                                     'js/directives/DirectivesFactory.js',
                                     'js/modules/RequestModule.js',
                                     'js/config/ConfigurationHandler.js',
-                                    'js/config/ArticleConfiguration.js',
                                     'js/bil_dev.js',
                                     'js/vendor/pure.js']
                 }
