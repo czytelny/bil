@@ -7,7 +7,7 @@ BIL.DirectivesFactory = (function(CONSTANTS) {
 
     var getRepeatableDirective = function(data, articleName) {
         var repeatableDirective = {};
-        var itemTag = CONSTANTS.CSS.bundled.REPEATABLE_ITEM;
+        var itemTag = CONSTANTS.CSS.REPEATABLE_ITEM;
         repeatableDirective[itemTag] = {};
 
         var repeatString = 'element<-' + articleName + contentConfigName;

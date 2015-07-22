@@ -38,7 +38,7 @@
     }
 
     function renderSingleArticle(data, articleName) {
-        var selector = getSignleArticleSelector(articleName);
+        var selector = getSingleArticleSelector(articleName);
         var directive = DirectivesFactory.getSingleArticleDirective(data, articleName);
         $p(selector).render(data, directive);
     }
@@ -50,11 +50,11 @@
     }
 
     function getRepeatableSelector(articleName) {
-        return CONSTANTS.CSS.bundled.REPEATABLE + '.' + articleName;
+        return '.' + articleName;
     }
 
-    function getSignleArticleSelector(articleName) {
-        return CONSTANTS.CSS.bundled.SINGLE + '.' + articleName;
+    function getSingleArticleSelector(articleName) {
+        return '.' + articleName;
     }
 
 })(BIL.RequestModule,
