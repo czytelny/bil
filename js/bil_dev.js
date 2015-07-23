@@ -38,23 +38,15 @@
     }
 
     function renderSingleArticle(data, articleName) {
-        var selector = getSingleArticleSelector(articleName);
+        var selector = '.' + articleName;
         var directive = DirectivesFactory.getSingleArticleDirective(data, articleName);
         $p(selector).render(data, directive);
     }
 
     function renderRepeatableItems(data, articleName) {
-        var selector = getRepeatableSelector(articleName);
+        var selector = '.' + articleName;
         var directive = DirectivesFactory.getRepeatableDirective(data, articleName);
         $p(selector).render(data, directive);
-    }
-
-    function getRepeatableSelector(articleName) {
-        return '.' + articleName;
-    }
-
-    function getSingleArticleSelector(articleName) {
-        return '.' + articleName;
     }
 
 })(BIL.RequestModule,

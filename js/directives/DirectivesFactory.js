@@ -2,7 +2,6 @@
 
 BIL.DirectivesFactory = (function(CONSTANTS) {
     var contentConfigName = ".data";
-    var optionsConfigName = "options";
     var PREFIX = ".bil-";
 
     var getRepeatableDirective = function(data, articleName) {
@@ -28,6 +27,7 @@ BIL.DirectivesFactory = (function(CONSTANTS) {
 
     var getSingleArticleDirective = function(data, articleName) {
         var directive = {};
+        //TODO move available options to config file
         var requiredFields = data[articleName].options['requiredFields'];
         for (var i = 0 ; i <requiredFields.length; i++){
             var currentTagName = requiredFields[i];
