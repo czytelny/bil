@@ -2,6 +2,7 @@
 
 BIL.ConfigurationHandler = (function() {
     var PREFIX = "bil-";
+    var configuration;
 
     function appendPrefixToArrayElements(array) {
         for (var i = 0; i < array.length; i++) {
@@ -10,11 +11,17 @@ BIL.ConfigurationHandler = (function() {
         }
     }
 
-    //TODO: configData zagnieździć jako obiekt dla conf handlera.
+    var setConfData = function(confObj) {
+        configuration = confObj;
+    };
 
-    var getSinglesList = function(configData) {
-        var singlesList = configData.applicationSettings.singleArticles;
-        if (singlesList instanceof Array) {
+    function isArray(o) {
+        return Object.prototype.toString.call(o) === '[object Array]';
+    }
+
+    var getSinglesList = function() {
+        var singlesList = configuration["applicationSettings"]["singleArticles"];
+        if (isArray(singlesList)) {
             appendPrefixToArrayElements(singlesList);
             return singlesList;
         }
@@ -23,24 +30,25 @@ BIL.ConfigurationHandler = (function() {
         return new Array(singleArrayList);
     };
 
-    var getRepeatableList = function(configData) {
-        var repeatableList = configData.applicationSettings.multipleArticles;
-        if (repeatableList instanceof Array) {
-            appendPrefixToArrayElements(repeatableList);
-            return repeatableList;
+    var getMultipleArticlesList = function() {
+        var multipleArtList = configuration["applicationSettings"]["multipleArticles"];
+        if (isArray(multipleArtList)) {
+            appendPrefixToArrayElements(multipleArtList);
+            return multipleArtList;
         }
-        var repeatableArrayList = new Array(repeatableList);
+        var repeatableArrayList = new Array(multipleArtList);
         appendPrefixToArrayElements(repeatableArrayList);
         return new Array(repeatableArrayList);
     };
 
-    var getContentFolder = function(configData) {
-        return configData.generalSettings.contentFolder;
+    var getContentFolder = function() {
+        return configuration["generalSettings"]["contentFolder"];
     };
 
     return {
         getSinglesList: getSinglesList,
-        getRepeatableList: getRepeatableList,
-        getContentFolder: getContentFolder
+        getMultipleArticlesList: getMultipleArticlesList,
+        getContentFolder: getContentFolder,
+        setConfData: setConfData
     }
 })();

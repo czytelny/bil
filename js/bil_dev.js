@@ -1,13 +1,19 @@
 "use strict";
 
 (function(RequestModule, DirectivesFactory, ConfigurationHandler, CONSTANTS) {
+
+    ////////////////
+    //Entry point
+    ////////////////
     RequestModule.sendGet(CONSTANTS.URLS.CONFIG, fetchContentData);
 
-    //Entry point
+
     function fetchContentData(configurationData) {
-        var singlesList = ConfigurationHandler.getSinglesList(configurationData);
-        var repeatableList = ConfigurationHandler.getRepeatableList(configurationData);
-        var contentFolder = ConfigurationHandler.getContentFolder(configurationData);
+        ConfigurationHandler.setConfData(configurationData);
+
+        var contentFolder = ConfigurationHandler.getContentFolder();
+        var singleArticleList = ConfigurationHandler.getSinglesList();
+        var multipleArticlesList = ConfigurationHandler.getMultipleArticlesList();
 
         (function fetchSingleArticlesData() {
             var curriedSingleArticleRender = function(articleName) {
@@ -16,9 +22,9 @@
                 }
             };
 
-            for (var i = 0; i < singlesList.length; i++) {
-                var url = contentFolder + "/" + singlesList[i] + ".json";
-                RequestModule.sendGet(url, curriedSingleArticleRender(singlesList[i]));
+            for (var i = 0; i < singleArticleList.length; i++) {
+                var url = contentFolder + "/" + singleArticleList[i] + ".json";
+                RequestModule.sendGet(url, curriedSingleArticleRender(singleArticleList[i]));
             }
         })();
 
@@ -30,9 +36,9 @@
                 }
             };
 
-            for (var i = 0; i < repeatableList.length; i++) {
-                var url = contentFolder + "/" + repeatableList[i] + ".json";
-                RequestModule.sendGet(url, curriedRepeatableRender(repeatableList[i]));
+            for (var i = 0; i < multipleArticlesList.length; i++) {
+                var url = contentFolder + "/" + multipleArticlesList[i] + ".json";
+                RequestModule.sendGet(url, curriedRepeatableRender(multipleArticlesList[i]));
             }
         })();
     }
