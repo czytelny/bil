@@ -20,6 +20,7 @@ BIL.RequestModule = (function() {
         var dataRequest = new XMLHttpRequest();
         hookSuccessCallback(dataRequest, successCallback);
         dataRequest.open(REQUEST_TYPES.getRequest, url, true);
+        dataRequest.setRequestHeader("Content-Type", "application/json");
         dataRequest.send();
     };
 
