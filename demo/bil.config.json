@@ -3,7 +3,7 @@
         "contentFolder": "data"
     },
     "applicationSettings": {
-        "singleArticles": ["contact"],
+        "singleArticles": ["contact", "history"],
         "multipleArticles": ["news"]
     }
 

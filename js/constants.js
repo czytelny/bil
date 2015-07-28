@@ -2,7 +2,7 @@
 
 BIL.CONSTANTS = {
     CSS: {
-        "REPEATABLE_ITEM": ".bil-repeatable-item"
+        "REPEATABLE_ITEM": ".bil-item"
     },
     TAGS: {
         "BIL_CONTENT": "bil-content",
