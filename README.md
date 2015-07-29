@@ -1,3 +1,3 @@
 # bil
 
-Draft of a unobtrusive CMS based on pure.js.
+Draft of an unobtrusive CMS based on the pure.js: https://github.com/pure/pure
