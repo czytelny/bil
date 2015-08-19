@@ -31,7 +31,8 @@ module.exports = function(grunt) {
                                     'js/modules/RequestModule.js',
                                     'js/config/ConfigurationHandler.js',
                                     'js/bil_dev.js',
-                                    'js/vendor/pure.js']
+                                    'js/vendor/pure.js',
+                                    'js/vendor/nerve.js']
                 }
             }
         },
