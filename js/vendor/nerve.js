@@ -1,3 +1,5 @@
+"use strict";
+
 (function () {
 
         // issue #1: routes should be object instead of array as per usage below.
@@ -32,7 +34,6 @@
                 } else if (arguments.length == 2) {
                     if (Object.prototype.toString.call(arguments[1]) == "[object Function]") {
                         cb = arguments[1];
-                        caller = arguments.callee;
                     }
                 } else if (arguments.length == 3 && Object.prototype.toString.call(arguments[2]) == "[object Function]") {
                     // issue #1: arguments[1] was being checked as the funciton, but [1] should be the route.
@@ -40,16 +41,15 @@
                     if (Object.prototype.toString.call(arguments[2]) == "[object Function]") {
                         r = arguments[1];
                         cb = arguments[2];
-                        caller = arguments[3] || arguments.callee;
+                        caller = arguments[3];
                     } else {
                         throw Error('Last parameter must be a callback function');
                     }
                 } else if (arguments.length == 4) {
-                    c = channel;
                     r = route;
                     cb = callback;
 
-                    caller = scope || arguments.callee;
+                    caller = scope;
                 }
 
                 if (!cb) {
@@ -83,7 +83,7 @@
 
             off: function (channel, route, scope) {
                 if (routes[channel]) {
-                    var r = 'root', caller = scope || arguments.callee;
+                    var r = 'root', caller = scope;
 
                     if (route) r = route;
 
@@ -124,10 +124,8 @@
                             try {
                                 routes[ch][rt][idx].callback(ctx);
                                 clearTimeout(ref);
-                            } catch (e) {
-                                return;
-                            }
-                        });
+                            } catch (e) {}
+                        },0);
                     })(channel, r, i);
                 }
             }
