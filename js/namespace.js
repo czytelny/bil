@@ -6,3 +6,4 @@ BIL.RequestModule = {};
 BIL.DirectivesFactory = {};
 BIL.ConfigurationHandler = {};
 BIL.ArticleConfiguration = {};
+BIL.nerve = {}

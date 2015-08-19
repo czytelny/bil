@@ -41,14 +41,14 @@
         var selector = '.' + articleName;
         var directive = DirectivesFactory.getSingleArticleDirective(data, articleName);
         $p(selector).render(data, directive);
-        nerve.send(articleName, 'rendered', {});
+        BIL.nerve.send(articleName, 'rendered', {});
     }
 
     function renderRepeatableItems(data, articleName) {
         var selector = '.' + articleName;
         var directive = DirectivesFactory.getRepeatableDirective(data, articleName);
         $p(selector).render(data, directive);
-        nerve.send(articleName, 'rendered', {});
+        BIL.nerve.send(articleName, 'rendered', {});
     }
 
 })(BIL.RequestModule,

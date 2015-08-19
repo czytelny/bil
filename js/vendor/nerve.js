@@ -17,7 +17,7 @@
         }
 
 
-        window.nerve = {
+        BIL.nerve = {
 
             on: function (channel, route, callback, scope) {
                 /// <summary>Listen to a given channel or listen to a channel and route combination</summary>
