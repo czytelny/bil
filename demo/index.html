@@ -14,17 +14,17 @@
     <script src="../js/config/ConfigurationHandler.js"></script>
     <script src="../js/bil_dev.js"></script>
     <script src="../js/vendor/pure.js"></script>
-    <script src="../js/vendor/nerve.js"></script>
+    <script src="../js/vendor/vnerv.js"></script>
 </head>
 <body>
 <script>
-    BIL.nerve.on('bil-news', 'rendered', function(context) {
+    BIL.vnerv.on('bil-news', 'rendered', function(context) {
         console.log("bil-news rendered!");
     });
-    BIL.nerve.on('bil-history', 'rendered', function(context) {
+    BIL.vnerv.on('bil-history', 'rendered', function(context) {
         console.log("bil-history rendered!");
     });
-    BIL.nerve.on('bil-contact', 'rendered', function(context) {
+    BIL.vnerv.on('bil-contact', 'rendered', function(context) {
         console.log("bil-contact rendered!");
     });
 </script>

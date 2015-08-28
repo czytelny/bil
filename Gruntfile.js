@@ -32,7 +32,7 @@ module.exports = function(grunt) {
                                     'js/config/ConfigurationHandler.js',
                                     'js/bil_dev.js',
                                     'js/vendor/pure.js',
-                                    'js/vendor/nerve.js']
+                                    'js/vendor/vnerv.js']
                 }
             }
         },
