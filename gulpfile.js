@@ -1,10 +1,20 @@
 const gulp = require('gulp');
-const babel = require('gulp-babel');
+const browserify = require('browserify');
+const babelify = require('babelify');
+const source = require('vinyl-source-stream');
 
-gulp.task('default', () => {
-	return gulp.src('js/modules/RequestModule.js')
-		.pipe(babel({
-			presets: ['es2015']
-		}))
-		.pipe(gulp.dest('dist/partials/'));
+gulp.task('build', () => {
+    browserify({
+        entries: 'js/modules/RequestModule.js',
+        extensions: ['.js'],
+        debug: true
+    })
+        .transform('babelify', {presets: ['es2015']})
+        .bundle()
+        .on('error', function(err) {
+            console.error(err);
+            this.emit('end');
+        })
+        .pipe(source('bundle.js'))
+        .pipe(gulp.dest('dist'));
 });
