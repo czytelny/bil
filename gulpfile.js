@@ -5,7 +5,7 @@ const source = require('vinyl-source-stream');
 
 gulp.task('build', () => {
     browserify({
-        entries: 'js/modules/RequestModule.js',
+        entries: 'js/test.js',
         extensions: ['.js'],
         debug: true
     })
