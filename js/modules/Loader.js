@@ -25,10 +25,8 @@ var sendGet = function(url) {
     });
 };
 
-var getConfiguration = ()=> sendGet(CONFIG_URL);
-
 var api = {
-    getConfiguration: getConfiguration
+    getConfiguration: ()=> sendGet(CONFIG_URL)
 };
 
 export default api;
