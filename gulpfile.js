@@ -8,7 +8,7 @@ const jasmine = require('gulp-jasmine');
 
 gulp.task('build', function() {
     return browserify({
-            entries: 'js/test.js',
+            entries: 'js/bil.js',
             extensions: ['.js'],
             debug: true
         })
@@ -20,6 +20,10 @@ gulp.task('build', function() {
             })
             .pipe(source('bundle.js'))
             .pipe(gulp.dest('dist'));
+});
+
+gulp.task('watch', ['build'], function () {
+    gulp.watch('*.js', ['build']);
 });
 
 gulp.task('tests', function() {
