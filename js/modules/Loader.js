@@ -6,30 +6,29 @@ const OK = 200;
 
 var sendGet = function(url) {
     let request = new XMLHttpRequest();
-    let d = Promise.defer();
-    request.onreadystatechange = function() {
-        if ((request.readyState === REQUEST_FINISHED_RESPONSE_READY)
-             && (request.status === OK)) {
-            let data = JSON.parse(request.responseText);
-            d.resolve(data);
-        } else {
-            d.reject(request.responseText);
-        }
-    };
+    return new Promise(function(resolve, reject) {
+        request.onload = function() {
+            if (this.status === OK) {
+                let data = JSON.parse(this.responseText);
+                resolve(data);
+            } else {
+                reject(new Error(this.statusText));
+            }
+        };
+        request.onerror = () => {
+            reject(new Error('XMLHttpRequest Error: ' + this.statusText));
+        };
 
-    request.open(GET_REQUEST, CONFIG_URL, true);
-    request.setRequestHeader("Content-Type", "application/json");
-    request.send();
-
-    return d.promise;
+        request.open(GET_REQUEST, url);
+        request.setRequestHeader("Content-Type", "application/json");
+        request.send();
+    });
 };
 
-var getConfiguration = function() {
-   return sendGet(CONFIG_URL);
-}
+var getConfiguration = ()=> sendGet(CONFIG_URL);
 
 var api = {
-    sendGet: sendGet
+    getConfiguration: getConfiguration
 };
 
 export default api;
