@@ -1,23 +1,32 @@
 const GET_REQUEST = "GET";
+const CONFIG_URL = "bil.config.json";
+
 const REQUEST_FINISHED_RESPONSE_READY = 4;
 const OK = 200;
 
-var hookSuccessCallback = function(dataRequest, callbackFun) {
-    dataRequest.onreadystatechange = function() {
-        if (dataRequest.readyState === REQUEST_FINISHED_RESPONSE_READY && dataRequest.status === OK) {
-            let data = JSON.parse(dataRequest.responseText);
-            callbackFun(data);
+var sendGet = function(url) {
+    let request = new XMLHttpRequest();
+    let d = Promise.defer();
+    request.onreadystatechange = function() {
+        if ((request.readyState === REQUEST_FINISHED_RESPONSE_READY)
+             && (request.status === OK)) {
+            let data = JSON.parse(request.responseText);
+            d.resolve(data);
+        } else {
+            d.reject(request.responseText);
         }
     };
+
+    request.open(GET_REQUEST, CONFIG_URL, true);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.send();
+
+    return d.promise;
 };
 
-var sendGet = function(url, successCallback) {
-    let dataRequest = new XMLHttpRequest();
-    hookSuccessCallback(dataRequest, successCallback);
-    dataRequest.open(GET_REQUEST, url, true);
-    dataRequest.setRequestHeader("Content-Type", "application/json");
-    dataRequest.send();
-};
+var getConfiguration = function() {
+   return sendGet(CONFIG_URL);
+}
 
 var api = {
     sendGet: sendGet
