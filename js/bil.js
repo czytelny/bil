@@ -1,5 +1,6 @@
 //require('babel-polyfill');
 import Pure from './vendor/pure.js'
+import vnerv from './vendor/vnerv'
 import Loader from './modules/Loader'
 import ConfigParser from './modules/ConfigParser'
 import DirectivesFactory from './modules/DirectivesFactory'
@@ -28,10 +29,12 @@ function renderSingleArticle(data, articleName) {
     let selector = '.' + articleName;
     let directive = DirectivesFactory.getSingleArticleDirective(data, articleName);
     Pure.$p(selector).render(data, directive);
+    BilBus.send(articleName, 'rendered', {});
 }
 
 function renderRepeatableItems(data, articleName) {
     let selector = '.' + articleName;
     let directive = DirectivesFactory.getRepeatableDirective(data, articleName);
     Pure.$p(selector).render(data, directive);
+    BilBus.send(articleName, 'rendered', {});
 }

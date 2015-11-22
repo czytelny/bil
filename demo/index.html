@@ -10,6 +10,18 @@
     <script src="../dist/bundle.js"></script>
 </head>
 <body>
+<script>
+    BilBus.on('bil-news', 'rendered', function(context) {
+        console.log("bil-news rendered!");
+    });
+    BilBus.on('bil-history', 'rendered', function(context) {
+        console.log("bil-history rendered!");
+    });
+    BilBus.on('bil-contact', 'rendered', function(context) {
+        console.log("bil-contact rendered!");
+    });
+</script>
+
 <div class="row">
     <div class="large-12 columns ">
         <div class="logo">
