@@ -3,7 +3,7 @@ const CONTENT_FOLDER = "contentFolder";
 const DATA = "data";
 const APPLICATION_SETTINGS = "applicationSettings";
 const SINGLE_ARTICLES = "singleArticles";
-const MULTIPLE_ARTICLES = "multipleArticles";
+const REPEATABLE_ARTICLES = "repeatableArticles";
 
 const PREFIX = "bil-";
 
@@ -25,7 +25,7 @@ function getArticleNames(type, configuration) {
 var api = {
     getContentFolderName: configuration => configuration["generalSettings"]["contentFolder"],
     getSingleArticleNames: (configuration) => getArticleNames(SINGLE_ARTICLES, configuration),
-    getMultipleArticlesNames: (configuration) => getArticleNames(MULTIPLE_ARTICLES, configuration)
+    getRepeatableArticlesNames: (configuration) => getArticleNames(REPEATABLE_ARTICLES, configuration)
 };
 
 export default api;

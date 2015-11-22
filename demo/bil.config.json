@@ -4,7 +4,7 @@
     },
     "applicationSettings": {
         "singleArticles": ["contact", "history"],
-        "multipleArticles": ["news"]
+        "repeatableArticles": ["news"]
     }
 
 }
