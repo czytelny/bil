@@ -9,13 +9,13 @@ const PREFIX = "bil-";
 
 var isArray = (o) => Object.prototype.toString.call(o) === '[object Array]';
 
-var appendPrefix = (prefix, item) => item = prefix+item;
+var appendPrefix = (prefix, item) => prefix + item;
 
 function getArticleNames(type, configuration) {
     let articlesList = configuration[APPLICATION_SETTINGS][type];
     if (isArray(articlesList)) {
         for (let i = 0; i < articlesList.length; i++) {
-            appendPrefix(PREFIX, articlesList[i]);
+            articlesList[i] = appendPrefix(PREFIX, articlesList[i]);
         }
         return articlesList;
     }
@@ -25,7 +25,7 @@ function getArticleNames(type, configuration) {
 var api = {
     getContentFolderName: configuration => configuration["generalSettings"]["contentFolder"],
     getSingleArticleNames: (configuration) => getArticleNames(SINGLE_ARTICLES, configuration),
-    getMultipleArticlesList: (configuration) => getArticleNames(MULTIPLE_ARTICLES, configuration)
+    getMultipleArticlesNames: (configuration) => getArticleNames(MULTIPLE_ARTICLES, configuration)
 };
 
 export default api;

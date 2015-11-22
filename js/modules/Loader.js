@@ -26,7 +26,8 @@ var sendGet = function(url) {
 };
 
 var api = {
-    getConfiguration: ()=> sendGet(CONFIG_URL)
+    getConfiguration: ()=> sendGet(CONFIG_URL),
+    getContent: (contentFolder, contentName)=> sendGet(`${contentFolder}/${contentName}.json`)
 };
 
 export default api;
