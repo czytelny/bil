@@ -1,33 +1,30 @@
-const contentConfigName = ".data";
 const PREFIX = ".b-";
 const REPEATABLE_ITEM = ".bil-item";
 
-var getRepeatableDirective = function(data, articleName) {
-    var repeatableDirective = {};
+var getRepeatableDirective = function(data) {
+    let repeatableDirective = {};
     repeatableDirective[REPEATABLE_ITEM] = {};
 
-    var repeatString = 'element<-' + articleName + contentConfigName;
-    var requiredFields = data[articleName].options['requiredFields'];
+    var repeatString = 'element<-';
+    var requiredFields = data.options['requiredFields'];
     repeatableDirective[REPEATABLE_ITEM][repeatString] = {};
 
-    for (var i = 0; i < requiredFields.length; i++) {
+    for (let i = 0; i < requiredFields.length; i++) {
         if (!repeatableDirective[REPEATABLE_ITEM][repeatString]) {
             repeatableDirective[REPEATABLE_ITEM][repeatString] = {};
         }
-        var currentTagName = requiredFields[i];
-
+        let currentTagName = requiredFields[i];
         repeatableDirective[REPEATABLE_ITEM][repeatString][PREFIX + currentTagName] = 'element.' + currentTagName;
     }
-
     return repeatableDirective;
 };
 
-var getSingleArticleDirective = function(data, articleName) {
+var getSingleArticleDirective = function(data) {
     var directive = {};
-    var requiredFields = data[articleName].options['requiredFields'];
-    for (var i = 0; i < requiredFields.length; i++) {
-        var currentTagName = requiredFields[i];
-        directive[PREFIX + currentTagName] = articleName + contentConfigName + '.' + currentTagName;
+    var requiredFields = data.options['requiredFields'];
+    for (let i = 0; i < requiredFields.length; i++) {
+        let currentTagName = requiredFields[i];
+        directive[PREFIX + currentTagName] = currentTagName;
     }
     return directive;
 };

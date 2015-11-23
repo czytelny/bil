@@ -1,10 +1,6 @@
 {
-    "generalSettings": {
-        "contentFolder": "data"
-    },
-    "applicationSettings": {
-        "singleArticles": ["contact", "history"],
-        "repeatableArticles": ["news"]
-    }
-
+  "generalSettings": {
+    "contentFolder": "data"
+  },
+  "applicationSettings": {}
 }

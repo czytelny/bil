@@ -5,36 +5,31 @@ import Loader from './modules/Loader'
 import ConfigParser from './modules/ConfigParser'
 import DirectivesFactory from './modules/DirectivesFactory'
 
+const SINGLE_TYPE = "single";
+const REPEATABLE_TYPE = "repeatable";
+
 Loader.getConfiguration().then(function(configuration) {
     let contentFolderName = ConfigParser.getContentFolderName(configuration);
-    let singleArticlesNames = ConfigParser.getSingleArticleNames(configuration);
-    let repeatableArticlesNames = ConfigParser.getRepeatableArticlesNames(configuration);
 
-    for (let i = 0; i < singleArticlesNames.length; i++) {
-        let articleName = singleArticlesNames[i];
-        Loader.getContent(contentFolderName, articleName).then((data)=>
-                renderSingleArticle(data, articleName)
-        );
-    }
-
-    for (let i = 0; i < repeatableArticlesNames.length; i++) {
-        let articleName = repeatableArticlesNames[i];
-        Loader.getContent(contentFolderName, articleName).then((data) =>
-                renderRepeatableItems(data, articleName)
-        );
-    }
+    Loader.getContent(contentFolderName).then((data) =>
+            renderItems(data)
+    );
 });
 
-function renderSingleArticle(data, articleName) {
-    let selector = '.' + articleName;
-    let directive = DirectivesFactory.getSingleArticleDirective(data, articleName);
-    Pure.$p(selector).render(data, directive);
-    BilBus.send(articleName, 'rendered', {});
+function renderItems(rawData) {
+    for (let i = 0; i < rawData.length; i++) {
+        let directive = {};
+        if (rawData[i].type === SINGLE_TYPE) {
+            directive = DirectivesFactory.getSingleArticleDirective(rawData[i]);
+        } else {
+            directive = DirectivesFactory.getRepeatableDirective(rawData[i]);
+        }
+        renderArticle(rawData[i].data, rawData[i].name, directive);
+    }
 }
 
-function renderRepeatableItems(data, articleName) {
+function renderArticle(data, articleName, directive) {
     let selector = '.' + articleName;
-    let directive = DirectivesFactory.getRepeatableDirective(data, articleName);
     Pure.$p(selector).render(data, directive);
     BilBus.send(articleName, 'rendered', {});
 }

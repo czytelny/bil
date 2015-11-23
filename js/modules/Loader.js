@@ -1,5 +1,7 @@
 const GET_REQUEST = "GET";
-const CONFIG_URL = "bil.config.json";
+const CONFIG_FILE_NAME = "bil.config.json";
+const DATA_FILE_NAME = "bil.data.json";
+
 
 const REQUEST_FINISHED_RESPONSE_READY = 4;
 const OK = 200;
@@ -26,8 +28,8 @@ var sendGet = function(url) {
 };
 
 var api = {
-    getConfiguration: ()=> sendGet(CONFIG_URL),
-    getContent: (contentFolder, contentName)=> sendGet(`${contentFolder}/${contentName}.json`)
+    getConfiguration: ()=> sendGet(CONFIG_FILE_NAME),
+    getContent: (contentFolder)=> sendGet(`${contentFolder}/${DATA_FILE_NAME}`)
 };
 
 export default api;
