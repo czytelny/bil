@@ -1,6 +1,6 @@
 //require('babel-polyfill');
 import Pure from './vendor/pure.js'
-import vnerv from './vendor/vnerv'
+import Vnerv from './vendor/vnerv'
 import Loader from './modules/Loader'
 import ConfigParser from './modules/ConfigParser'
 import DirectivesFactory from './modules/DirectivesFactory'
