@@ -22,6 +22,7 @@
   <!-- BIL app -->
   <script src="js/bil-admin.js"></script>
 </head>
+
 <body ng-app="bil-admin" ng-cloak class="md-inline-form">
   <div class="content" ng-controller="MainController as mainCtrl">
     <h1>Admin panel</h1>
@@ -34,7 +35,7 @@
 
     <md-content flex layout-padding>
       <div class="quill-wrapper">
-        <div id="toolbar">
+        <div class="quill-toolbar">
           <!-- Add font size dropdown -->
           <span class="ql-format-group">
             <select class="ql-font">
@@ -44,12 +45,11 @@
             </select>
 
             <select class="ql-size">
-              <option value="0.6rem">Tiny</option>
-              <option value="0.8rem">Small</option>
+              <option value="0.75rem">Small</option>
               <option value="1rem" selected>Normal</option>
-              <option value="1.2rem">Large</option>
-              <option value="1.5rem">Huge</option>
-              <option value="3rem">Big</option>
+              <option value="1.5rem">Large</option>
+              <option value="2.5rem">Huge</option>
+              <option value="3.5rem">Extra big</option>
             </select>
           </span>
           <!-- Add a bold button -->
@@ -70,12 +70,14 @@
       </div>
     </md-content>
     <md-button class="md-raised md-primary" ng-click="mainCtrl.save()">Save</md-button>
-
+    <md-input-container class="md-block">
+      <label>HTML preview</label>
+      <textarea class="code" ng-model="mainCtrl.htmlPreview" columns="1" readonly="readonly"></textarea>
+    </md-input-container>
   </div>
 
   <script>
     var configs = {
-      readOnly: false,
       theme: 'snow',
       styles: {
         '.ql-editor': {
@@ -90,7 +92,7 @@
 
     var quill = new Quill('#editor', configs);
     quill.addModule('toolbar', {
-      container: '#toolbar'
+      container: '.quill-toolbar'
     });
   </script>
 
