@@ -1,6 +1,5 @@
 html {
   font-size: 16px;
-  margin: 0 5%;
 }
 body {
   font-family: "Open Sans", sans-serif;
@@ -12,13 +11,12 @@ body {
 }
 
 .content {
-  max-width: 864px;
   margin: auto;
 }
 .quill-wrapper {
   border: 1px solid #ccc;
-  box-shadow: 0 0 10px #ccc;
+  box-shadow: 0 0 5px #e5e5e5;
 }
-#toolbar {
+.quill-toolbar {
   border-bottom: 1px solid #ccc;
 }

@@ -1,10 +1,22 @@
 angular.module('bil-admin', ['ngMaterial']);
 
-angular.module('bil-admin', ['ngMaterial']).controller('MainController', function(){
-  var scope = this;
-  this.save = function function_name() {
-    scope.htmlPreview = quill.getHTML();
-  }
+angular.module('bil-admin').config(function($mdThemingProvider) {
+// Extend the red theme with a few different colors
+    var neonRedMap = $mdThemingProvider.extendPalette('red', {
+        '500': '323232'
+    });
+    // Register the new color palette map with the name <code>neonRed</code>
+    $mdThemingProvider.definePalette('blue-grey', neonRedMap);
+    // Use that theme for the primary intentions
+    $mdThemingProvider.theme('default')
+        .primaryPalette('blue-grey')
+});
 
-  this.htmlPreview = "";
+angular.module('bil-admin').controller('MainController', function() {
+    var scope = this;
+    this.save = function function_name() {
+        scope.htmlPreview = quill.getHTML();
+    };
+
+    this.htmlPreview = "";
 });
