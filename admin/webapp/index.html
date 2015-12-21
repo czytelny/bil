@@ -5,6 +5,9 @@
     <!-- Angular Material style sheet -->
     <link rel="stylesheet"
           href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc7/angular-material.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,700' rel='stylesheet'
+          type='text/css'>
+
     <!-- Quill editor style sheet -->
     <link rel="stylesheet" href="css/quill.base.css"/>
     <link rel="stylesheet" href="css/quill.snow.css"/>
@@ -14,6 +17,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
 
     <!-- Angular Material Library -->
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
@@ -23,6 +27,9 @@
 
     <!-- BIL app -->
     <script src="js/bil-admin.js"></script>
+    <script src="js/newContent/newContentCtrl.js"></script>
+    <script src="js/newContent/newContentService.js"></script>
+    <script src="js/listContent/listContentCtrl.js"></script>
 </head>
 
 <body ng-app="bil-admin" ng-cloak class="md-inline-form" ng-controller="MainController as mainCtrl">
@@ -43,10 +50,12 @@
                     md-is-locked-open="$mdMedia('gt-sm')">
             <md-content>
                 <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                    <h1>menu</h1>
+                    <h1></h1>
                 </section>
                 <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                    <md-button class="md-fab md-primary big" aria-label="Add new">
+                    <md-button class="md-fab md-primary big"
+                               href="#/newContent"
+                               aria-label="Add new">
                         <md-icon md-svg-src="img/plus-circle-outline.svg"></md-icon>
                     </md-button>
                 </section>
@@ -56,7 +65,9 @@
                 </section>
 
                 <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                    <md-button class="md-fab md-primary" aria-label="List">
+                    <md-button class="md-fab md-primary"
+                               href="#/listContent"
+                               aria-label="List">
                         <md-icon md-svg-src="img/view-list.svg"></md-icon>
                     </md-button>
                 </section>
@@ -64,89 +75,16 @@
                          class="menu-element">
                     List
                 </section>
-
             </md-content>
-
         </md-sidenav>
 
-        <div layout="column" flex class="content-wrapper" id="primary-col">
-            <md-content flex layout-padding>
-                <md-input-container>
-                    <label>Document title</label>
-                    <input ng-model="user.title">
-                </md-input-container>
-            </md-content>
-
-            <md-content flex layout-padding>
-                <div class="quill-wrapper">
-                    <div class="quill-toolbar">
-                        <!-- Add font size dropdown -->
-              <span class="ql-format-group">
-                <select class="ql-font">
-                    <option selected value="serif">Serif</option>
-                    <option value="sans-serif">Sans Serif</option>
-                    <option value="monospace">Monospace</option>
-                </select>
-
-                <select class="ql-size">
-                    <option value="0.75rem">Small</option>
-                    <option value="1rem" selected>Normal</option>
-                    <option value="1.5rem">Large</option>
-                    <option value="2.5rem">Huge</option>
-                    <option value="3.5rem">Extra big</option>
-                </select>
-              </span>
-                        <!-- Add a bold button -->
-              <span class="ql-format-group">
-                <span class="ql-bold ql-format-button" title="Bold"></span>
-                <span class="ql-format-separator"></span>
-                <span class="ql-italic ql-format-button" title="Italic"></span>
-                <span class="ql-format-separator"></span>
-                <span class="ql-underline ql-format-button" title="Underline"></span>
-              </span>
-                    </div>
-
-                    <!-- Create the editor container -->
-                    <div id="editor">
-                        <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                            ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                            officia deserunt mollit anim id est laborum.</h1>
-                    </div>
-                </div>
-            </md-content>
-            <md-button class="md-raised md-primary" ng-click="mainCtrl.save()">Save</md-button>
-            <md-input-container class="md-block">
-                <label>HTML preview</label>
-                <textarea class="code" ng-model="mainCtrl.htmlPreview" columns="1"
-                          readonly="readonly"></textarea>
-            </md-input-container>
+        <div layout="column" flex class="content-wrapper md-padding" id="primary-col">
+            <!--link specific content here-->
+            <div ng-view></div>
         </div>
     </div>
 </div>
 
-<script>
-    var configs = {
-        theme: 'snow',
-        styles: {
-            '.ql-editor': {
-                'font-family': "Serif",
-                'font-size': '1rem'
-            },
-            '.ql-editor a': {
-                'text-decoration': 'none'
-            }
-        }
-    };
-
-    var quill = new Quill('#editor', configs);
-    quill.addModule('toolbar', {
-        container: '.quill-toolbar'
-    });
-</script>
 
 </body>
 

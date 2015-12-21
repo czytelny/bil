@@ -1,9 +1,12 @@
 html {
-  font-size: 16px;
+  
 }
 body {
-  font-family: "Open Sans", sans-serif;
-  color: #484848;
+  color: #333333;
+  font-family: Ubuntu, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  transition: all 0.3s ease; 
 }
 
 .menu-element {

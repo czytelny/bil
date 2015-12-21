@@ -1,0 +1,72 @@
+<!--------------------------->
+<!--Adding new content view-->
+<!--------------------------->
+
+<md-content flex class="md-padding">
+    <h1>New content</h1>
+</md-content>
+
+<md-content flex class="md-padding">
+    <md-input-container>
+        <label>Document title</label>
+        <input ng-model="user.title">
+    </md-input-container>
+</md-content>
+
+
+<md-content flex class="md-padding">
+    <div class="quill-wrapper">
+        <div class="quill-toolbar">
+            <!-- Add font size dropdown -->
+              <span class="ql-format-group">
+                <select class="ql-font">
+                    <option selected value="serif">Serif</option>
+                    <option value="sans-serif">Sans Serif</option>
+                    <option value="monospace">Monospace</option>
+                </select>
+
+                <select class="ql-size">
+                    <option value="0.75rem">Small</option>
+                    <option value="1rem" selected>Normal</option>
+                    <option value="1.5rem">Large</option>
+                    <option value="2.5rem">Huge</option>
+                    <option value="3.5rem">Extra big</option>
+                </select>
+              </span>
+            <!-- Add a bold button -->
+              <span class="ql-format-group">
+                <span class="ql-bold ql-format-button" title="Bold"></span>
+                <span class="ql-format-separator"></span>
+                <span class="ql-italic ql-format-button" title="Italic"></span>
+                <span class="ql-format-separator"></span>
+                <span class="ql-underline ql-format-button" title="Underline"></span>
+              </span>
+        </div>
+
+        <!-- Create the editor container -->
+        <div class="editor">
+            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor
+                incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                officia deserunt mollit anim id est laborum.</h1>
+        </div>
+    </div>
+</md-content>
+<md-content flex class="md-padding">
+    <md-button class="md-raised md-primary" ng-click="newContentCtrl.save()">Save</md-button>
+    <md-input-container class="md-block">
+        <label>HTML preview</label>
+                <textarea class="code" ng-model="mainCtrl.htmlPreview" columns="1"
+                          readonly="readonly"></textarea>
+    </md-input-container>
+</md-content>
+
+
+<script>
+
+</script>
