@@ -33,15 +33,13 @@
 </head>
 
 <body ng-app="bil-admin" ng-cloak class="md-inline-form" ng-controller="MainController as mainCtrl">
-<md-toolbar layout="row">
+<div class="header">
     <md-button ng-click="mainCtrl.toggleSideNav('leftMenu')" hide-gt-sm
                class="md-icon-button menuBtn">
         <md-icon aria-label="Menu" md-svg-icon="img/menu.svg"></md-icon>
     </md-button>
-
-    <h1 layout-align-gt-sm="center" class="md-toolbar-tools">BIL</h1>
-</md-toolbar>
-
+    <strong>BIL</strong> <span class="white smaller">unobtrusive cms</span>
+</div>
 
 <div>
     <div layout="row" flex class="content-wrapper">

@@ -2,8 +2,8 @@ angular.module('bil-admin', ['ngMaterial', 'ngRoute']);
 
 angular.module('bil-admin').config(['$mdThemingProvider', function($mdThemingProvider) {
 // Extend the red theme with a few different colors
-    var neonRedMap = $mdThemingProvider.extendPalette('red', {
-        '500': '2E7149'
+    var neonRedMap = $mdThemingProvider.extendPalette('blue-grey', {
+        '500': '2B5263'
     });
     // Register the new color palette map with the name <code>neonRed</code>
     $mdThemingProvider.definePalette('blue-grey', neonRedMap);

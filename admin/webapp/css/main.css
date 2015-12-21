@@ -16,7 +16,7 @@ body {
 }
 
 .code{
-  font-family: Consolas, "Courier New";
+  font-family: Consolas, "Courier New", sans-serif;
 }
 
 .content {
@@ -29,3 +29,24 @@ body {
 .quill-toolbar {
   border-bottom: 1px solid #ccc;
 }
+
+.header {
+  background-color: #333;
+
+  color: #bbbbbb;
+  font-size: 3rem;
+  padding: 0 2rem;
+}
+
+.content {
+  max-width: 1024px;
+}
+
+.white {
+  color: #FFFFFF;
+}
+
+.smaller {
+  font-size: 0.6rem;
+}
+
