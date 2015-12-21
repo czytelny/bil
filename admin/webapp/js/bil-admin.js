@@ -12,11 +12,15 @@ angular.module('bil-admin').config(function($mdThemingProvider) {
         .primaryPalette('blue-grey')
 });
 
-angular.module('bil-admin').controller('MainController', function() {
+angular.module('bil-admin').controller('MainController', ['$mdSidenav', function($mdSidenav) {
     var scope = this;
     this.save = function function_name() {
         scope.htmlPreview = quill.getHTML();
     };
 
+    this.toggleSideNav = function(name) {
+        $mdSidenav(name).toggle();
+    };
+
     this.htmlPreview = "";
-});
+}]);
