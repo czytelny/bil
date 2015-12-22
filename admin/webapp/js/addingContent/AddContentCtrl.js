@@ -1,20 +1,19 @@
-import newContentService from './AddContentService.js';
+import AddContentService from './AddContentService.js';
 
-export default class newContentCtrl {
-    constructor(newContentService) {
-        this.newContentService = newContentService;
-
+export default class AddContentCtrl {
+    constructor(AddContentService) {
+        this.AddContentService = AddContentService;
         this.htmlPreview = "";
         this.initEditor();
     }
 
     save() {
         angular.bind(this, function() {
-            this.htmlPreview = newContentService.getEditorHandler().getHTML();
+            this.htmlPreview = AddContentService.getEditorHandler().getHTML();
         });
     }
 
     initEditor() {
-        this.newContentService.initEditor();
+        this.AddContentService.initEditor();
     }
 }

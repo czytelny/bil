@@ -1,4 +1,4 @@
-export default class newContentService {
+export default class AddContentService {
     constructor() {
         this.editorHandler = {};
         this.quilEdtiorConfig = {
