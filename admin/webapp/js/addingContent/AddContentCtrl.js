@@ -1,6 +1,7 @@
 import AddContentService from './AddContentService.js';
 
 export default class AddContentCtrl {
+    /*@ngInject*/
     constructor(AddContentService) {
         this.AddContentService = AddContentService;
         this.htmlPreview = "";

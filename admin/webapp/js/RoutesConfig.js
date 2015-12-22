@@ -1,4 +1,5 @@
 export default function($routeProvider) {
+    "ngInject";
     $routeProvider
         .when('/addContent', {
             templateUrl: 'partials/addContent.html',

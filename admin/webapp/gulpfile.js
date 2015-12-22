@@ -4,8 +4,9 @@ const babelify = require('babelify');
 const source = require('vinyl-source-stream');
 const jasmine = require('gulp-jasmine');
 const uglify = require('gulp-uglify');
-var sourcemaps = require('gulp-sourcemaps');
-var buffer = require('vinyl-buffer');
+const sourcemaps = require('gulp-sourcemaps');
+const buffer = require('vinyl-buffer');
+const ngAnnotate = require('gulp-ng-annotate');
 
 
 gulp.task('dist', function() {
@@ -23,6 +24,7 @@ gulp.task('dist', function() {
         .pipe(buffer())
         .pipe(sourcemaps.init({loadMaps: true}))
         // capture sourcemaps from transforms
+        .pipe(ngAnnotate())
         .pipe(uglify())
         .pipe(gulp.dest('dist'));
 });

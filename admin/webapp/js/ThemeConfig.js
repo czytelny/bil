@@ -1,5 +1,6 @@
 
 export default function themeConfig($mdThemingProvider) {
+    "ngInject";
     // Extend the red theme with a few different colors
     var neonRedMap = $mdThemingProvider.extendPalette('blue-grey', {
         '500': '2B5263'

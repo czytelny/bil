@@ -11,3 +11,4 @@ angular.module('bil-admin', ['ngMaterial', 'ngRoute'])
     .controller('MainCtrl', MainCtrl)
     .controller('AddContentCtrl', AddContentCtrl)
     .service('AddContentService', AddContentService);
+
