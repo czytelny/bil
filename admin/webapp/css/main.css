@@ -50,3 +50,7 @@ body {
   font-size: 0.6rem;
 }
 
+.right-border {
+  border-right: 1px solid #cecece;
+}
+

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="bil-admin">
 
 <head>
     <!-- Angular Material style sheet -->
@@ -26,15 +26,16 @@
     <script src="js/vendor/quill.min.js"></script>
 
     <!-- BIL app -->
-    <script src="js/bil-admin.js"></script>
-    <script src="js/newContent/newContentCtrl.js"></script>
-    <script src="js/newContent/newContentService.js"></script>
-    <script src="js/listContent/listContentCtrl.js"></script>
+    <script src="dist/bil-admin.js"></script>
+    <!--<script src="js/bil-admin.js"></script>-->
+    <!--<script src="js/newContent/newContentCtrl.js"></script>-->
+    <!--<script src="js/newContent/newContentService.js"></script>-->
+    <!--<script src="js/listContent/listContentCtrl.js"></script>-->
 </head>
 
-<body ng-app="bil-admin" ng-cloak class="md-inline-form" ng-controller="MainController as mainCtrl">
+<body ng-cloak class="md-inline-form" ng-controller="MainCtrl as MainCtrl">
 <div class="header">
-    <md-button ng-click="mainCtrl.toggleSideNav('leftMenu')" hide-gt-sm
+    <md-button ng-click="MainCtrl.toggleSideNav('leftMenu')" hide-gt-sm
                class="md-icon-button menuBtn">
         <md-icon aria-label="Menu" md-svg-icon="img/menu.svg"></md-icon>
     </md-button>
@@ -43,7 +44,7 @@
 
 <div>
     <div layout="row" flex class="content-wrapper">
-        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2"
+        <md-sidenav layout="column" class="md-sidenav-left right-border"
                     md-component-id="leftMenu"
                     md-is-locked-open="$mdMedia('gt-sm')">
             <md-content>
