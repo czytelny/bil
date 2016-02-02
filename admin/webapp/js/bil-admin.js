@@ -1,14 +1,10 @@
 import Routes from './RoutesConfig.js'
 import ThemeConfig from './ThemeConfig.js'
-import MainCtrl from './MainCtrl.js';
-import AddContentCtrl from './addingContent/AddContentCtrl.js';
+import Controllers from './ControllersConfig.js'
 import AddContentService from './addingContent/AddContentService.js';
-import ListContentCtrl from './listingContent/ListContentCtrl.js';
 
-angular.module('bil-admin', ['ngMaterial', 'ngRoute'])
+angular.module('bil-admin', [Controllers.name, 'ngMaterial', 'ngRoute'])
     .config(Routes)
     .config(ThemeConfig)
-    .controller('MainCtrl', MainCtrl)
-    .controller('AddContentCtrl', AddContentCtrl)
     .service('AddContentService', AddContentService);
 

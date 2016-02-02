@@ -1,20 +1,14 @@
 import AddContentService from './AddContentService.js';
 
-export default class AddContentCtrl {
-    /*@ngInject*/
-    constructor(AddContentService) {
-        this.AddContentService = AddContentService;
-        this.htmlPreview = "";
-        this.initEditor();
-    }
+export default function AddContentCtrl(AddContentService) {
+    "@ngInject"
 
-    save() {
-        angular.bind(this, function() {
-            this.htmlPreview = AddContentService.getEditorHandler().getHTML();
-        });
+            
+    this.htmlPreview = "";
+    
+    this.save = function save() {
+        this.htmlPreview = AddContentService.editorHandler.getHTML();                 
     }
-
-    initEditor() {
-        this.AddContentService.initEditor();
-    }
+    
+    AddContentService.initEditor();    
 }

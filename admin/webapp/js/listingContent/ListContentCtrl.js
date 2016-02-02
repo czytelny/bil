@@ -1,5 +1,3 @@
-//angular.module('bil-admin').controller('listContentCtrl', function() {
-//    console.log("list content");
-//});
-//
-//export default 'listContentCtrl';
+export default function ListContentCtrl() {
+    console.log("list content ctrl here");
+};

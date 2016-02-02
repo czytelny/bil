@@ -7,7 +7,7 @@ export default function($routeProvider) {
         })
         .when('/listContent', {
             templateUrl: 'partials/listContent.html',
-            controller: 'listContentCtrl'
+            controller: 'ListContentCtrl as ListContentCtrl'
         })
         .otherwise({
             redirectTo: '/addContent'
